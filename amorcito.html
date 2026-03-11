@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Buenos días mi amor</title>
+
+<style>
+
+body{
+margin:0;
+padding:0;
+font-family:'Segoe UI',sans-serif;
+height:100vh;
+overflow:hidden;
+text-align:center;
+color:white;
+background:linear-gradient(#020111,#191621);
+}
+
+/* cielo */
+
+.sky{
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(#020111,#191621,#3a1c71,#ff7e5f,#ffd194);
+animation:amanecer 12s forwards;
+}
+
+@keyframes amanecer{
+0%{filter:brightness(0.3);}
+100%{filter:brightness(1);}
+}
+
+/* sol */
+
+.sun{
+position:absolute;
+bottom:-120px;
+left:50%;
+transform:translateX(-50%);
+width:180px;
+height:180px;
+background:radial-gradient(circle,#ffd700,#ff8c00);
+border-radius:50%;
+animation:salirSol 10s forwards;
+box-shadow:0 0 80px #ffcc66;
+}
+
+@keyframes salirSol{
+to{bottom:40%;}
+}
+
+/* contenedor */
+
+.container{
+position:relative;
+z-index:2;
+margin-top:60px;
+}
+
+/* foto estilo profesional */
+
+img{
+width:260px;
+height:260px;
+border-radius:50%;
+object-fit:cover;
+border:8px solid rgba(255,255,255,0.8);
+box-shadow:
+0 0 25px rgba(255,255,255,0.9),
+0 0 60px rgba(255,200,200,0.6);
+transition:0.5s;
+}
+
+img:hover{
+transform:scale(1.05);
+}
+
+/* carta */
+
+.carta{
+margin-top:20px;
+background:rgba(255,255,255,0.15);
+padding:20px;
+border-radius:20px;
+width:80%;
+margin-left:auto;
+margin-right:auto;
+backdrop-filter:blur(5px);
+animation:aparecer 3s ease;
+}
+
+/* texto */
+
+p{
+font-size:22px;
+line-height:1.6;
+}
+
+/* mensaje final */
+
+.final{
+font-size:32px;
+margin-top:30px;
+opacity:0;
+animation:mostrarFinal 3s forwards;
+animation-delay:10s;
+font-weight:bold;
+text-shadow:0 0 20px white;
+}
+
+@keyframes mostrarFinal{
+to{opacity:1; transform:scale(1.1);}
+}
+
+/* corazones */
+
+.heart{
+position:absolute;
+top:-50px;
+font-size:25px;
+animation:caer linear infinite;
+}
+
+@keyframes caer{
+0%{transform:translateY(-50px);opacity:1;}
+100%{transform:translateY(100vh);opacity:0;}
+}
+
+@keyframes aparecer{
+from{opacity:0; transform:translateY(-30px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sky"></div>
+<div class="sun"></div>
+
+<div class="container">
+
+<h1>☀️ Buenos días mi amor ☀️</h1>
+
+<img src="Ruiz.jpg" alt="Mi amor">
+
+<div class="carta">
+
+<p>
+Solo quería recordarte algo al comenzar este día...
+</p>
+
+<p>
+No importa a dónde vayas, ni lo que pase en la vida,
+yo siempre te voy a elegir a ti.
+</p>
+
+<p>
+A pesar de todo lo que hemos pasado,
+no pienso dejar este amor,
+porque hice un pacto con Jehová Dios
+de cuidar lo que siento por ti.
+</p>
+
+<p>
+Quiero caminar contigo en cada etapa de la vida,
+ver cómo pasan los años
+y seguir sonriendo juntos.
+</p>
+
+</div>
+
+<div class="final">
+❤️ Siempre serás tú  
+<br>
+Mayra Nicolle Ruiz ❤️
+</div>
+
+</div>
+
+<!-- MUSICA M4A -->
+
+<audio autoplay loop>
+<source src="musica.m4a" type="audio/mp4">
+</audio>
+
+<script>
+
+/* corazones flotando */
+
+for(let i=0;i<40;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(5+Math.random()*6)+"s";
+
+heart.style.fontSize=(20+Math.random()*20)+"px";
+
+document.body.appendChild(heart);
+
+}
+
+</script>
+
+</body>
+</html>
